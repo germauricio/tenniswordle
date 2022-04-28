@@ -1,0 +1,14 @@
+.matrix__error-message {
+  color: orange;
+}
+
+.matrix__button {
+  border: none;
+  background-color: rgb(78, 129, 238);
+  height: 50px;
+  width: 120px;
+  color: white;
+  border-radius: 2px;
+  margin-top: 20px;
+  font-size: 15px;
+}
