@@ -16,7 +16,7 @@ const Matrix = ({squares, player}) => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(word);
+
     if(word.join('').length !== player.join('').length) {
       setError('Llenar todas las casillas');
       return;
@@ -41,7 +41,8 @@ const Matrix = ({squares, player}) => {
 
     setError('');
     let actualWord = word
-    actualWord[e.target.name] = e.target.value;
+    const letter = e.target.value ? e.target.value.toUpperCase() : e.target.value;
+    actualWord[e.target.name] = letter;
     
     setWord(actualWord);
   }

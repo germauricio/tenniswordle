@@ -6,7 +6,7 @@ import {useState, useEffect} from 'react';
 function App() {
   const [squares, setSquares] = useState([]);
   useEffect(() => {
-    setSquares(getRandomPlayer().toLowerCase().split(""));
+    setSquares(getRandomPlayer().toUpperCase().split(""));
   }, [])
 
   return <Matrix squares={squares} player={squares} />;
