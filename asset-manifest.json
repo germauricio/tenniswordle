@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tenniswordle/static/css/main.9833e314.css",
+    "main.js": "/tenniswordle/static/js/main.3eec2d6d.js",
+    "index.html": "/tenniswordle/index.html",
+    "main.9833e314.css.map": "/tenniswordle/static/css/main.9833e314.css.map",
+    "main.3eec2d6d.js.map": "/tenniswordle/static/js/main.3eec2d6d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9833e314.css",
+    "static/js/main.3eec2d6d.js"
+  ]
+}
