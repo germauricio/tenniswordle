@@ -1,9 +1,16 @@
 .input__square {
   border: none;
-  width: 40px;
-  height: 40px; 
+  width: 36px;
+  height: 36px; 
   margin: 3px;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   text-transform: capitalize;
+}
+
+@media (max-width: 600px) {
+  .input__square {
+    width: 100%;
+    max-width: 36px;
+  }
 }

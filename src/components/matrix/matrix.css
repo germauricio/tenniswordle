@@ -12,3 +12,12 @@
   margin-top: 20px;
   font-size: 15px;
 }
+
+@media (max-width: 600px) {
+  .matrix__container {
+    max-width: 100%;
+    height: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}

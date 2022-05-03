@@ -36,7 +36,7 @@ const Matrix = ({squares, player}) => {
   }
 
   const handleChange = (e) => {
-    const nextInput = ref.current.children[4-triesLeft]?.children[parseInt(e.target.name) + 1];
+    const nextInput = ref.current.firstChild.children[4-triesLeft]?.children[parseInt(e.target.name) + 1];
     if(nextInput && e.target.value) nextInput.focus();
 
     setError('');
@@ -49,15 +49,17 @@ const Matrix = ({squares, player}) => {
 
   return (
     <form ref={ref} onSubmit={handleSubmit} className="App">
-      {(triesLeft < 4 || won ) && <Tries player={player} guesses={guesses} />}
-      {!won && !lost && (
-        <Input player={player} onChange={handleChange} squares={squares} />
-      )}
-      {[...Array(triesLeft)].map(() => <UndoneTries squares={squares} disabled={true}/>)}
+      <div className={`${namespace}__container`}>
+        {(triesLeft < 4 || won ) && <Tries player={player} guesses={guesses} />}
+        {!won && !lost && (
+          <Input player={player} onChange={handleChange} squares={squares} />
+        )}
+        {[...Array(triesLeft)].map(() => <UndoneTries squares={squares} disabled={true}/>)}
+      </div>
       {error && <p className={`${namespace}__error-message`}>{error}</p>}
       {won ? <p>Ganastes</p> : (
         <>
-          {lost && <p>perdistes: {squares}</p>}
+          {lost && <p>Perdistes: {squares}</p>}
           <button className={`${namespace}__button`}type="submit">Submit</button>
         </>
       )}
