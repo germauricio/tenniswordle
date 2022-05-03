@@ -2,7 +2,7 @@ import GuessSquare from "../guessSquare/GuessSquare";
 
 const namespace = 'input';
 
-const Input = ({onChange, squares, disabled, isGuess, player}) => {
+const Input = ({onChange, squares, disabled, isGuess, player, onKeyDown}) => {
   const color = disabled || isGuess ? 'grey' : 'white';
 
   return (
@@ -11,7 +11,7 @@ const Input = ({onChange, squares, disabled, isGuess, player}) => {
         return (
           <>
             {isGuess ? <GuessSquare player={player} index={i} letter={letter} /> : (
-              <input name={i} maxLength="1" className={`${namespace}__square color__${color}`} pattern="[a-zA-Z]" onChange={onChange}></input>
+              <input onKeyDown={onKeyDown} name={i} maxLength="1" className={`${namespace}__square color__${color}`} pattern="[a-zA-Z]" onChange={onChange}></input>
             )}
           </>
         )}

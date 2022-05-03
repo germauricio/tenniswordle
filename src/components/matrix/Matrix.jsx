@@ -35,6 +35,13 @@ const Matrix = ({squares, player}) => {
     setTriesLeft(triesLeft - 1);
   }
 
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 8) {
+      const prevInput = ref.current.firstChild.children[4-triesLeft]?.children[parseInt(e.target.name) - 1];
+      if(prevInput && !e.target.value) prevInput.focus();  
+    }
+  }
+
   const handleChange = (e) => {
     const nextInput = ref.current.firstChild.children[4-triesLeft]?.children[parseInt(e.target.name) + 1];
     if(nextInput && e.target.value) nextInput.focus();
@@ -52,7 +59,7 @@ const Matrix = ({squares, player}) => {
       <div className={`${namespace}__container`}>
         {(triesLeft < 4 || won ) && <Tries player={player} guesses={guesses} />}
         {!won && !lost && (
-          <Input player={player} onChange={handleChange} squares={squares} />
+          <Input player={player} onKeyDown={handleKeyDown} onChange={handleChange} squares={squares} />
         )}
         {[...Array(triesLeft)].map(() => <UndoneTries squares={squares} disabled={true}/>)}
       </div>
