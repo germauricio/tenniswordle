@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/tenniswordle/static/css/main.b52f97ad.css",
-    "main.js": "/tenniswordle/static/js/main.8a5e54d4.js",
+    "main.css": "/tenniswordle/static/css/main.3c4e70e3.css",
+    "main.js": "/tenniswordle/static/js/main.d08b6fc0.js",
     "index.html": "/tenniswordle/index.html",
-    "main.b52f97ad.css.map": "/tenniswordle/static/css/main.b52f97ad.css.map",
-    "main.8a5e54d4.js.map": "/tenniswordle/static/js/main.8a5e54d4.js.map"
+    "main.3c4e70e3.css.map": "/tenniswordle/static/css/main.3c4e70e3.css.map",
+    "main.d08b6fc0.js.map": "/tenniswordle/static/js/main.d08b6fc0.js.map"
   },
   "entrypoints": [
-    "static/css/main.b52f97ad.css",
-    "static/js/main.8a5e54d4.js"
+    "static/css/main.3c4e70e3.css",
+    "static/js/main.d08b6fc0.js"
   ]
 }
