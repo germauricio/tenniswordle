@@ -5,7 +5,7 @@ const getRandomPlayer = () => {
   return getLastName(players[random]);
 }
 
-const getLastName = (name) => {
+const getLastName = (name: string) => {
   const names = name.split(" ");
   return names[names.length - 1];
 }
