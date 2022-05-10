@@ -1,7 +1,8 @@
 import React, {useState, useRef} from 'react';
 import Input from '../input/Input';
 import UndoneTries from '../undoneTries/UndoneTries';
-import Tries from '../tries/Tries'
+import Tries from '../tries/Tries';
+import { checkWordExists, isError } from '../../services/words';
 
 const namespace = 'matrix';
 
@@ -19,16 +20,17 @@ const Matrix = ({squares, player}: MatrixType) => {
   const [won, setWon] = useState<boolean>(false);
   const [guesses, setGuesses] = useState<string[]>([]);
   
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
+    const wordString = word.join('');
 
-    if(word.join('').length !== player.join('').length) {
-      setError('Llenar todas las casillas');
-      return;
-    }
-    setGuesses([...guesses, word.join('')]);
+    const wordExists = await checkWordExists(wordString);
 
-    if(word.join('') === player.join('')){
+    if(isError(wordString, player, wordExists, setError)) return;
+    
+    setGuesses([...guesses, wordString]);
+
+    if(wordString === player.join('')){
       setWon(true);
       return;
     }
