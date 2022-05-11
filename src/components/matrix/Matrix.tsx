@@ -19,14 +19,12 @@ const Matrix = ({squares, player}: MatrixType) => {
   const [error, setError] = useState<string>('');
   const [won, setWon] = useState<boolean>(false);
   const [guesses, setGuesses] = useState<string[]>([]);
-  
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const wordString = word.join('');
 
-    const wordExists = await checkWordExists(wordString);
-
-    if(isError(wordString, player, wordExists, setError)) return;
+    if(await isError(wordString, player, setError)) return;
     
     setGuesses([...guesses, wordString]);
 

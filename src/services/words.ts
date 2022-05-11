@@ -10,7 +10,7 @@ const checkWordExists = async (word: string) => {
   return result.data;
 }
 
-const isError = (word: string, player: string[], wordExists: any, setError: any) => {
+const isError = async (word: string, player: string[], setError: any) => {
   if(word.length !== player.join('').length) {
     setError('Llenar todas las casillas');
     return true;
@@ -18,7 +18,12 @@ const isError = (word: string, player: string[], wordExists: any, setError: any)
   const isPlayerName = getAllPlayers().find(el => {
     return el.toUpperCase().includes(word);
   });
-  if(!isPlayerName && !wordExists?.body){
+
+  if(isPlayerName) return false;
+  const wordExists = await checkWordExists(word).then( result => {
+    return result
+  });
+  if(!wordExists?.body){
     setError('Esa palabra no existe');
     return true;
   }
